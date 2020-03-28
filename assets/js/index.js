@@ -31,8 +31,8 @@ function createDoador(){
     });
 }
 
-function loadDoadores(tipoSanguineo){    
-    $.get(api_doador_url+"/doadores?tipoSanguineo="+tipoSanguineo,function(estados){
+function loadDoadores(tipoSanguineo,cidade){    
+    var jqxhr = $.get( api_doador_url+"/doadores?tipoSanguineo="+tipoSanguineo+"&cidade="+cidade, function(estados) {
         $.each(estados, function(index, obj) {
             var linha = "<tr>"
             +"<td>"+obj.nome+"</td>"
@@ -43,9 +43,20 @@ function loadDoadores(tipoSanguineo){
             +"<td>"+obj.email+"</td>"
             +"<td>"+obj.UF+"</td>"
             +"<td>"+obj.cidade+"</td>"
+            +"<td><i class='fa fa-edit' onclick='updateDoador("+obj.id+")'></i> <i class='fa fa-remove' onclick='removeDoador("+obj.id+")'></i></td>"
             +"</tr>";
             $(linha).appendTo("#lista-doadores");
+            toastr.success("Qtd: "+estados.length, 'Busca efetuada com sucesso!');
         });
+        if(estados.length == 0)
+            toastr.info('Nenhum registro encontrado!');
+    })
+    .done(function() {
+    })
+    .fail(function() {        
+        toastr.error('Erro ao buscar informações!');
+    })
+    .always(function() {
     });
 
 }
@@ -75,6 +86,7 @@ $(document).ready(function(){
         });
         $.each(estados, function(index, obj) {
             $("<option data-id=\""+obj.id+"\" value=\""+obj.id+"\">"+obj.sigla+" - "+obj.nome+"</option>").appendTo("#UF");
+            $("<option data-id=\""+obj.id+"\" value=\""+obj.id+"\">"+obj.sigla+" - "+obj.nome+"</option>").appendTo("#UFDoador");
         });
     });
 
@@ -87,10 +99,20 @@ $(document).ready(function(){
             });
         });
     });
+    
+    $("body").on("change","#UFDoador", function(obj){
+        var uf = $("#UFDoador").find(":selected").data("id");
+        $(".cidade").remove();
+        $.get(api_estado_url+"/localidades/estados/"+uf+"/municipios",function(cidades){
+            $.each(cidades, function(index, obj) {
+                $("<option class='cidade' value=\""+obj.id+"\">"+obj.nome+"</option>").appendTo("#CidadeDoador");
+            });
+        });
+    });
 
 
-    $("#tiposanguineo").on('change',function(){
-        loadDoadores($(this).val())
+    $("body").on("click","#okDoador",function(){
+        loadDoadores($("#tiposanguineoDoador").val(),$("#CidadeDoador").val());
     });
 
     toastr.options = {

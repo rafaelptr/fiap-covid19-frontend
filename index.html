@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
 
     <!-- Tostr-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
     <!-- main css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
@@ -44,10 +44,13 @@
             <div class="col-3">
                 <div class="card card-outline-redblood">
                     <div class="nav flex-column nav-pills">
-                        <a class="menu nav-link redblood active" data-toggle="pill" href="#v-cadastrar"><i class="fa fa-user fa"></i> Cadastrar um doador</a>
-                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-doadores" onclick="loadDoadores()"><i class="fa fa-users fa"></i> Doadores</a>
-                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-mapa"><i class="fa fa-map"></i> Mapa de doadores</a>
-                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-neaby"><i class="fa fa-compass"></i> Doadores por perto</a>
+                        <a class="menu nav-link redblood active" data-toggle="pill" href="#v-cadastrar"><i
+                                class="fa fa-user fa"></i> Cadastrar um doador</a>
+                        <a class="menu nav-link redblood" data-toggle="pill" href="#v-doadores"><i class="fa fa-users fa"></i> Doadores</a>
+                        <a class="menu nav-link redblood" data-toggle="pill" href="#v-mapa"><i class="fa fa-map"></i>
+                            Mapa de doadores</a>
+                        <a class="menu nav-link redblood" data-toggle="pill" href="#v-neaby"><i
+                                class="fa fa-compass"></i> Doadores por perto</a>
                     </div>
                 </div>
             </div>
@@ -59,141 +62,66 @@
                         <div class="card-body">
                             <h3 class="card-title"><strong>Cadastrar doador</strong></h3>
                             <hr />
-                                <div class="row justify-content-center">
-                                    <div class="col-7">
-                                        <div class="form-group ">
-                                            <label for="nome">Nome Completo</label>
-                                            <input id="nome" type="text" class="form-control" aria-describedby="nome"
-                                                placeholder="Nome Completo">
-                                        </div>
+                            <div class="row justify-content-center">
+                                <div class="col-7">
+                                    <div class="form-group ">
+                                        <label for="nome">Nome Completo</label>
+                                        <input id="nome" type="text" class="form-control" aria-describedby="nome"
+                                            placeholder="Nome Completo">
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-2">
-                                        <div class="form-group">
-                                            <label for="idade">Idade</label>
-                                            <input id="idade" type="number" class="form-control"
-                                                aria-describedby="idade" placeholder="Idade" min="18">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-2">
-                                        <div class="form-group ">
-                                            <label for="tipoSanguineo">Tipo Sanguíneo</label>
-                                            <select id="tipoSanguineo" class="form-control">
-                                                <option>-</option>
-                                                <option value="AP">A+</option>
-                                                <option value="AN">A-</option>
-                                                <option value="BP">B+</option>
-                                                <option value="ABP">AB+</option>
-                                                <option value="ABN">AB-</option>
-                                                <option value="OP">O+</option>
-                                                <option value="ON">O-</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3">
-                                        <div class="form-group">
-                                            <label for="cpf">CPF</label>
-                                            <input id="cpf" type="text" class="form-control" aria-describedby="cpf"
-                                                placeholder="CPF">
-                                        </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="idade">Idade</label>
+                                        <input id="idade" type="number" class="form-control" aria-describedby="idade"
+                                            placeholder="Idade" min="18">
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-2">
-                                        <div class="form-group">
-                                            <label for="telefone">Telefone</label>
-                                            <input id="telefone" type="text" class="form-control"
-                                                aria-describedby="telefone" placeholder="Telefone">
-                                        </div>
-                                    </div>
 
-                                    <div class="col-5">
-                                        <div class="form-group">
-                                            <label for="email">E-mail</label>
-                                            <input id="email" type="email" class="form-control" aria-describedby="email"
-                                                placeholder="E-mail">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-2">
-                                        <div class="form-group">
-                                            <label for="UF">UF</label>
-                                            <select id="UF" class="form-control">
-                                                <option>-</option>
-                                            </select>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-3">
-                                        <div class="form-group">
-                                            <label for="Cidade">Cidade</label>
-                                            <select id="cidade" class="form-control">
-                                                <option>-</option>
-                                            </select>
-                                        </div>
+                                <div class="col-2">
+                                    <div class="form-group ">
+                                        <label for="tipoSanguineo">Tipo Sanguíneo</label>
+                                        <select id="tipoSanguineo" class="form-control">
+                                            <option>-</option>
+                                            <option value="AP">A+</option>
+                                            <option value="AN">A-</option>
+                                            <option value="BP">B+</option>
+                                            <option value="ABP">AB+</option>
+                                            <option value="ABN">AB-</option>
+                                            <option value="OP">O+</option>
+                                            <option value="ON">O-</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="row justify-content-center">
-                                    <div class="col-7 text-center">
-                                        <button type="button" onclick="createDoador()" class="btn btn-primary">Cadastrar</button>
+
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="cpf">CPF</label>
+                                        <input id="cpf" type="text" class="form-control" aria-describedby="cpf"
+                                            placeholder="CPF">
                                     </div>
                                 </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="conteudo" id="v-doadores" style="display: none;">
-                    <div class="card text-center card-outline-redblood">
-                        <div class="card-body">
-                            <h3 class="card-title"><strong>Lista de doadores</strong></h3>
-                            <hr />
-                                                
-                                <div class="form-group col-3">
-                                    <label >Tipo Sanguíneo</label>
-                                    <select id="tiposanguineo" class="form-control">
-                                        <option>-</option>
-                                        <option value="AP">A+</option>
-                                        <option value="AN">A-</option>
-                                        <option value="BP">B+</option>
-                                        <option value="ABP">AB+</option>
-                                        <option value="ABN">AB-</option>
-                                        <option value="OP">O+</option>
-                                        <option value="ON">O-</option>
-                                    </select>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="telefone">Telefone</label>
+                                        <input id="telefone" type="text" class="form-control"
+                                            aria-describedby="telefone" placeholder="Telefone">
+                                    </div>
                                 </div>
 
-                            <table class="table">
-                                <thead class="thead redblood">
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Idade</th>
-                                    <th scope="col">Tipo Sanguíneo</th>
-                                    <th scope="col">CPF</th>
-                                    <th scope="col">Telefone</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">UF</th>
-                                    <th scope="col">Cidade</th>
-                                  </tr>
-                                </thead>
-                                <tbody id='lista-doadores'>
-                                </tbody>
-                              </table>                              
-                        </div>
-                    </div>
-                </div>
-
-                <div class="conteudo" id="v-mapa" style="display: none;">
-                    <div class="card text-center card-outline-redblood">
-                        <div class="card-body">
-                            <h3 class="card-title"><strong>Mapa de doadores</strong></h3>
-                            <hr />                            
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label for="email">E-mail</label>
+                                        <input id="email" type="email" class="form-control" aria-describedby="email"
+                                            placeholder="E-mail">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row justify-content-center">
                                 <div class="col-2">
                                     <div class="form-group">
@@ -206,16 +134,119 @@
 
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label >Cidade</label>
-                                        <select  class="form-control">
+                                        <label for="Cidade">Cidade</label>
+                                        <select id="cidade" class="form-control">
+                                            <option>-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <button type="button" onclick="createDoador()"
+                                        class="btn btn-primary">Cadastrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conteudo" id="v-doadores" style="display: none;">
+                    <div class="card text-center card-outline-redblood">
+                        <div class="card-body">
+                            <h3 class="card-title"><strong>Lista de doadores</strong></h3>
+                            <hr />
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="form-group ">
+                                        <label for="tiposanguineoDoador">Tipo Sanguíneo</label>
+                                        <select id="tiposanguineoDoador" class="form-control">
+                                            <option>-</option>
+                                            <option value="AP">A+</option>
+                                            <option value="AN">A-</option>
+                                            <option value="BP">B+</option>
+                                            <option value="ABP">AB+</option>
+                                            <option value="ABN">AB-</option>
+                                            <option value="OP">O+</option>
+                                            <option value="ON">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="UFDoador">UF</label>
+                                        <select id="UFDoador" class="form-control">
+                                            <option>-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="CidadeDoador">Cidade</label>
+                                        <select id="CidadeDoador" class="form-control">
+                                            <option>-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">                                    
+                                    <div class="form-group" style="margin-top:35px">
+                                        <label for=""> </label>
+                                        <button type="button" id="okDoador" class="btn"><i class="fa fa-search"></i> Buscar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead class="thead redblood">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Idade</th>
+                                        <th scope="col">Tipo Sanguíneo</th>
+                                        <th scope="col">CPF</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">UF</th>
+                                        <th scope="col">Cidade</th>
+                                        <th scope="col">#</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='lista-doadores'>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conteudo" id="v-mapa" style="display: none;">
+                    <div class="card text-center card-outline-redblood">
+                        <div class="card-body">
+                            <h3 class="card-title"><strong>Mapa de doadores</strong></h3>
+                            <hr />
+                            <div class="row justify-content-center">
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label for="UF">UF</label>
+                                        <select id="UF" class="form-control">
+                                            <option>-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label>Cidade</label>
+                                        <select class="form-control">
                                             <option>-</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group ">
-                                    <label >Tipo Sanguíneo</label>
-                                    <select  class="form-control">
+                                    <label>Tipo Sanguíneo</label>
+                                    <select class="form-control">
                                         <option>-</option>
                                         <option value="AP">A+</option>
                                         <option value="AN">A-</option>
@@ -234,14 +265,14 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <div class="conteudo" id="v-nearby" style="display: none;">
                     <div class="card text-center card-outline-redblood">
                         <div class="card-body">
                             <h3 class="card-title"><strong>Doadores por perto</strong></h3>
                             <hr />
-                            
+
                         </div>
                     </div>
                 </div>
