@@ -56,7 +56,6 @@
                         <div class="card-body">
                             <h3 class="card-title"><strong>Cadastrar doador</strong></h3>
                             <hr />
-                            <form>
                                 <div class="row justify-content-center">
                                     <div class="col-7">
                                         <div class="form-group ">
@@ -71,7 +70,7 @@
                                         <div class="form-group">
                                             <label for="idade">Idade</label>
                                             <input id="idade" type="number" class="form-control"
-                                                aria-describedby="idade" placeholder="Idade">
+                                                aria-describedby="idade" placeholder="Idade" min="18">
                                         </div>
                                     </div>
 
@@ -80,6 +79,7 @@
                                         <div class="form-group ">
                                             <label for="tipoSanguineo">Tipo Sanguíneo</label>
                                             <select id="tipoSanguineo" class="form-control">
+                                                <option>-</option>
                                                 <option value="A+">A+</option>
                                                 <option value="A-">A-</option>
                                                 <option value="B+">B+</option>
@@ -104,7 +104,7 @@
                                         <div class="form-group">
                                             <label for="telefone">Telefone</label>
                                             <input id="telefone" type="number" class="form-control"
-                                                aria-describedby="telefone" placeholder="Telefone">
+                                                aria-describedby="telefone" placeholder="Telefone" min="0">
                                         </div>
                                     </div>
 
@@ -138,11 +138,9 @@
                                 <hr>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                        <button type="button" onclick="createDoador()" class="btn btn-primary">Cadastrar</button>
                                     </div>
                                 </div>
-
-                            </form>
                         </div>
                     </div>
                 </div>

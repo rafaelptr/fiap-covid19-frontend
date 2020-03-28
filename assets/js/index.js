@@ -1,5 +1,9 @@
 var api_estado_url="https://servicodados.ibge.gov.br/api/v1";
-var api_doador_url=""; 
+var api_doador_url="https://fiap-covid19.herokuapp.com"; 
+
+function alertar() {
+
+}
 
 function createDoador(){
     var model = {
@@ -12,13 +16,13 @@ function createDoador(){
         email: $("#email").val(),
         telefone: $("#telefone").val(),
     };
-    console.log(model);
-    alert(model);
     alert(JSON.stringify(model));
 
     var request = $.ajax({
         method: "POST",
-        url: api_doador_url,
+        contentType: "application/json",
+        dataType: "json"
+        url: api_doador_url+"/doadores",
         data: model
       });
     
