@@ -16,11 +16,11 @@ function createDoador(){
     console.log(JSON.stringify(model));
 
     var request = $.ajax({
-        method: "POST",
-        contentType: "application/json",
-        dataType: "json",
+        type: "POST",
+        dataType: 'json',
+        contentType: 'application/json',
         url: api_doador_url+"/doadores",
-        data: model
+        data: JSON.stringify(model)
       });
     
     request.done(function( msg ) {
