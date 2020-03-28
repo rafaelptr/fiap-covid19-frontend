@@ -1,10 +1,6 @@
 var api_estado_url="https://servicodados.ibge.gov.br/api/v1";
 var api_doador_url="https://fiap-covid19.herokuapp.com"; 
 
-function alertar() {
-
-}
-
 function createDoador(){
     var model = {
         nome: $("#nome").val(),
@@ -16,7 +12,6 @@ function createDoador(){
         email: $("#email").val(),
         telefone: $("#telefone").val(),
     };
-    alert(JSON.stringify(model));
 
     var request = $.ajax({
         method: "POST",
@@ -27,12 +22,31 @@ function createDoador(){
       });
     
     request.done(function( msg ) {
-        alert("Doador cadastrado com sucesso");
+        toastr.success(msg, 'Doador cadastrado com sucesso!');
     });
 
     request.fail(function( jqXHR, status ) {
-        alert( "Requisão falhou: " + status );
+        toastr.error( "Requisão falhou: " + status, 'Erro ao cadastrar' );
     });
+}
+
+function loadDoadores(){    
+    $.get(api_doador_url+"/doadores",function(estados){
+        $.each(estados, function(index, obj) {
+            var linha = "<tr>"
+            +"<td>"+obj.nome+"</td>"
+            +"<td>"+obj.idade+"</td>"
+            +"<td>"+obj.tipoSanguineo+"</td>"
+            +"<td>"+obj.cpf+"</td>"
+            +"<td>"+obj.telefone+"</td>"
+            +"<td>"+obj.email+"</td>"
+            +"<td>"+obj.UF+"</td>"
+            +"<td>"+obj.cidade+"</td>"
+            +"</tr>";
+            $(linha).appendTo("#lista-doadores");
+        });
+    });
+
 }
 
 function hide(){
@@ -44,6 +58,7 @@ function menu(){
         hide();
         var item = $(this).attr("href");
         $(item).show();
+        $(item).trigger('ready');
     });
 }
 
@@ -70,5 +85,9 @@ $(document).ready(function(){
                 $("<option class='cidade' value=\""+obj.nome+"\">"+obj.nome+"</option>").appendTo("#cidade");
             });
         });
-    })
+    });
+
+    toastr.options = {
+        "positionClass": "toast-top-right",
+      };
 });

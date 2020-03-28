@@ -17,6 +17,9 @@
     <!-- Baloo -->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
 
+    <!-- Tostr-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"> 
+
     <!-- main css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
 
@@ -41,10 +44,10 @@
             <div class="col-3">
                 <div class="card card-outline-redblood">
                     <div class="nav flex-column nav-pills">
-                        <a class="menu nav-link redblood active" data-toggle="pill" href="#v-cadastrar">Cadastrar um doador</a>
-                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-doadores">Doadores</a>
-                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-mapa">Mapa de doadores</a>
-                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-neaby">Doadores por perto</a>
+                        <a class="menu nav-link redblood active" data-toggle="pill" href="#v-cadastrar"><i class="fa fa-user fa"></i> Cadastrar um doador</a>
+                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-doadores" onclick="loadDoadores()"><i class="fa fa-users fa"></i> Doadores</a>
+                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-mapa"><i class="fa fa-map"></i> Mapa de doadores</a>
+                        <a class="menu nav-link redblood" data-toggle="pill"  href="#v-neaby"><i class="fa fa-compass"></i> Doadores por perto</a>
                     </div>
                 </div>
             </div>
@@ -80,13 +83,13 @@
                                             <label for="tipoSanguineo">Tipo Sanguíneo</label>
                                             <select id="tipoSanguineo" class="form-control">
                                                 <option>-</option>
-                                                <option value="A+">A+</option>
-                                                <option value="A-">A-</option>
-                                                <option value="B+">B+</option>
-                                                <option value="AB+">AB+</option>
-                                                <option value="AB-">AB-</option>
-                                                <option value="O+">O+</option>
-                                                <option value="O-">O-</option>
+                                                <option value="AP">A+</option>
+                                                <option value="AN">A-</option>
+                                                <option value="BP">B+</option>
+                                                <option value="ABP">AB+</option>
+                                                <option value="ABN">AB-</option>
+                                                <option value="OP">O+</option>
+                                                <option value="ON">O-</option>
                                             </select>
                                         </div>
                                     </div>
@@ -150,7 +153,23 @@
                         <div class="card-body">
                             <h3 class="card-title"><strong>Lista de doadores</strong></h3>
                             <hr />
-                            {{TODO}}
+                            <table class="table">
+                                <thead class="thead redblood">
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Idade</th>
+                                    <th scope="col">Tipo Sanguíneo</th>
+                                    <th scope="col">CPF</th>
+                                    <th scope="col">Telefone</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">UF</th>
+                                    <th scope="col">Cidade</th>
+                                  </tr>
+                                </thead>
+                                <tbody id='lista-doadores'>
+                                </tbody>
+                              </table>                              
                         </div>
                     </div>
                 </div>
@@ -191,6 +210,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="./assets/js/index.js"></script>
 </body>
 
