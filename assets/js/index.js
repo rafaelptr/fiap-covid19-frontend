@@ -31,10 +31,14 @@ function createDoador(){
     });
 }
 
-function loadDoadores(tipoSanguineo,cidade){    
-    var jqxhr = $.get( api_doador_url+"/doadores?tipoSanguineo="+tipoSanguineo+"&cidade="+cidade, function(estados) {
+function loadDoadores(tipoSanguineo,cidade){   
+    var params = "";
+    if(cidade > 0 && tipoSanguineo!= "") {
+     params = "?tipoSanguineo="+tipoSanguineo+"&cidade="+cidade;
+    }
+    var jqxhr = $.get( api_doador_url+"/doadores"+params, function(estados) {
         $.each(estados, function(index, obj) {
-            var linha = "<tr>"
+            var linha = "<tr><td></td>"
             +"<td>"+obj.nome+"</td>"
             +"<td>"+obj.idade+"</td>"
             +"<td>"+obj.tipoSanguineo+"</td>"
