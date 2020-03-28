@@ -50,10 +50,13 @@ function loadDoadores(tipoSanguineo,cidade){
             +"<td><i class='fa fa-edit' onclick='updateDoador("+obj.id+")'></i> <i class='fa fa-remove' onclick='removeDoador("+obj.id+")'></i></td>"
             +"</tr>";
             $(linha).appendTo("#lista-doadores");
-            toastr.success("Qtd: "+estados.length, 'Busca efetuada com sucesso!');
         });
-        if(estados.length == 0)
-            toastr.info('Nenhum registro encontrado!');
+        if(estados.length == 0){
+            toastr.info('Nenhum registro encontrado!');}
+        else{
+            
+            toastr.success("Qtd: "+estados.length, 'Busca efetuada com sucesso!');
+        }
     })
     .done(function() {
     })
