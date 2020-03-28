@@ -75,7 +75,7 @@ $(document).ready(function(){
             return 0;
         });
         $.each(estados, function(index, obj) {
-            $("<option data-id=\""+obj.id+"\" value=\""+obj.nome+"\">"+obj.sigla+" - "+obj.nome+"</option>").appendTo("#UF");
+            $("<option data-id=\""+obj.id+"\" value=\""+obj.id+"\">"+obj.sigla+" - "+obj.nome+"</option>").appendTo("#UF");
         });
     });
 
@@ -84,7 +84,7 @@ $(document).ready(function(){
         $(".cidade").remove();
         $.get(api_estado_url+"/localidades/estados/"+uf+"/municipios",function(cidades){
             $.each(cidades, function(index, obj) {
-                $("<option class='cidade' value=\""+obj.nome+"\">"+obj.nome+"</option>").appendTo("#cidade");
+                $("<option class='cidade' value=\""+obj.id+"\">"+obj.nome+"</option>").appendTo("#cidade");
             });
         });
     });
