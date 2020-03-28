@@ -17,7 +17,6 @@ function createDoador(){
 
     var request = $.ajax({
         type: "POST",
-        dataType: 'json',
         contentType: 'application/json',
         url: api_doador_url+"/doadores",
         data: JSON.stringify(model)
