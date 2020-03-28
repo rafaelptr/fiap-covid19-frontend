@@ -13,6 +13,8 @@ function createDoador(){
         telefone: $("#telefone").val(),
     };
 
+    console.log(JSON.stringify(model));
+
     var request = $.ajax({
         method: "POST",
         contentType: "application/json",
