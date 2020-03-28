@@ -31,8 +31,8 @@ function createDoador(){
     });
 }
 
-function loadDoadores(){    
-    $.get(api_doador_url+"/doadores",function(estados){
+function loadDoadores(tipoSanguineo){    
+    $.get(api_doador_url+"/doadores?tipoSanguineo="+tipoSanguineo,function(estados){
         $.each(estados, function(index, obj) {
             var linha = "<tr>"
             +"<td>"+obj.nome+"</td>"
@@ -86,6 +86,11 @@ $(document).ready(function(){
                 $("<option class='cidade' value=\""+obj.id+"\">"+obj.nome+"</option>").appendTo("#cidade");
             });
         });
+    });
+
+
+    $("#tiposanguineo").on('change',function(){
+        loadDoadores($(this).val())
     });
 
     toastr.options = {
